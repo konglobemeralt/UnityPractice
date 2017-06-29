@@ -14,6 +14,7 @@ public class GunController : MonoBehaviour {
                 }
     }
 
+
     public void EquipGun(Gun gunToEquip) {
         if (equippedGun != null) {
             Destroy(equippedGun.gameObject);
