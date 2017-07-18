@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
+    float damage = 1;
     float speed = 10;
     public LayerMask collisionMask;
 
@@ -28,7 +29,10 @@ public class Projectile : MonoBehaviour {
 
 
     void OnHitObject(RaycastHit hit) {
-        print(hit.collider.gameObject.name);
+        IDamageable damagableObject = hit.collider.GetComponent<IDamageable>();
+        if (damagableObject != null) {
+            damagableObject.TakeHit(damage, hit);
+        }
         GameObject.Destroy(gameObject);
     }
 }

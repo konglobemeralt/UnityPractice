@@ -4,14 +4,16 @@ using UnityEngine;
 
 [RequireComponent(typeof(GunController))]
 [RequireComponent (typeof(PlayerControler))]
-public class Player : MonoBehaviour {
+
+public class Player : LivingEntity {
 
     public float moveSpeed = 5;
     Camera viewCamera;
     PlayerControler controller;
     GunController gunController;
 
-	void Start () {
+    protected override void Start () {
+        base.Start();
         viewCamera = Camera.main;
         gunController = GetComponent<GunController>();
         controller = GetComponent<PlayerControler>();	
